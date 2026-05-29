@@ -10,7 +10,7 @@ class Seamosworld < Formula
   desc "SeamOS SimulationWorld — QEMU VM + Electron dashboard for NEVONEX FCAL"
   homepage "https://github.com/AGMO-Inc/seamos-simulator"
   url "https://seamosworld-dist-795591862191.s3.ap-northeast-2.amazonaws.com/src/seamosworld-launcher-1.0.0.tar.gz"
-  sha256 "661b95c5a40daa5916a733a3c3c0bc030d1eff1206f6eb725573c9f863ae6c62"
+  sha256 "1b5f9d511549f4fc1f61dcb30776a6058348db98c4d7e984ccbbbbd46c994034"
   version "1.0.0"
   license "Proprietary"
 
@@ -32,12 +32,12 @@ class Seamosworld < Formula
 
   def caveats
     <<~EOS
-      qemu/zstd 가 의존성으로 함께 설치되었습니다 — 따로 설치할 것 없습니다.
+      qemu/zstd were installed as dependencies — nothing else to install.
 
-        seamosworld start --vm-only   # VM(QEMU) 만 기동 (이미지 첫 실행 시 자동 다운로드)
-        seamosworld stop              # VM 종료
-        seamosworld start             # VM + Electron 앱 창 (앱 첫 실행 시 자동 다운로드)
-        seamosworld install <앱.fif>  # NEVONEX 앱 설치
+        seamosworld start --vm-only   # Start VM(QEMU) only (image auto-downloads on first run)
+        seamosworld stop              # Stop VM
+        seamosworld start             # VM + Electron app window (app auto-downloads on first run)
+        seamosworld install <app.fif> # Install NEVONEX app
         seamosworld status / shell / apps / logs <svc>
 
       Dashboard: http://localhost:3000
