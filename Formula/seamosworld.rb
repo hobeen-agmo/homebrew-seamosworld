@@ -16,6 +16,7 @@ class Seamosworld < Formula
 
   depends_on "qemu"
   depends_on "zstd"
+  depends_on "xorriso" # cloud-init NoCloud seed.iso 생성(user-seed.sh) — SSH 키 주입용
 
   def install
     # tarball 최상위(brew 가 단일 top dir strip 후 cwd): simworld, lib/
