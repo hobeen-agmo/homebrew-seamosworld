@@ -10,7 +10,7 @@ class Seamosworld < Formula
   desc "SeamOS SimulationWorld — QEMU VM + Electron dashboard for NEVONEX FCAL"
   homepage "https://github.com/AGMO-Inc/seamos-simulator"
   url "https://seamosworld-dist-795591862191.s3.ap-northeast-2.amazonaws.com/src/seamosworld-launcher-1.0.0.tar.gz"
-  sha256 "1b5f9d511549f4fc1f61dcb30776a6058348db98c4d7e984ccbbbbd46c994034"
+  sha256 "9256036c2ebbea7321343d188f9476cda168f5ed506ac92fe6baf76e4f19dec5"
   version "1.0.0"
   license "Proprietary"
 
@@ -28,6 +28,15 @@ class Seamosworld < Formula
       exec "#{libexec}/simworld" "$@"
     SH
     bin.install_symlink bin/"seamosworld" => "simworld"
+  end
+
+  # brew install / upgrade 시 VM 이미지 + Electron 앱을 받는다(--if-needed: 버전이
+  # 같으면 생략 → upgrade 때 바뀐 것만 받음). 다운로드 실패해도 설치는 성공시키고
+  # 안내만 남긴다(start 때 안전망으로 다시 시도).
+  def post_install
+    system bin/"seamosworld", "fetch", "--if-needed"
+  rescue
+    opoo "Asset download incomplete — run 'seamosworld fetch' or it will retry on 'seamosworld start'."
   end
 
   def caveats
