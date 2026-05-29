@@ -10,7 +10,7 @@ class Seamosworld < Formula
   desc "SeamOS SimulationWorld — QEMU VM + Electron dashboard for NEVONEX FCAL"
   homepage "https://github.com/AGMO-Inc/seamos-simulator"
   url "https://seamosworld-dist-795591862191.s3.ap-northeast-2.amazonaws.com/src/seamosworld-launcher-1.0.0.tar.gz"
-  sha256 "83cf45a09313e8d4364c382b81f1bc1a57440c2554802901e6d1945eabd01167"
+  sha256 "07b0d698ab69d01fdcbf5185ed0a784c233417e704c2986514c3bfd6724358f2"
   version "1.0.0"
   license "Proprietary"
 
@@ -18,9 +18,9 @@ class Seamosworld < Formula
   depends_on "zstd"
 
   def install
-    # tarball 내부 구조: packaging/launcher/{simworld,lib}
-    libexec.install "packaging/launcher/simworld"
-    libexec.install "packaging/launcher/lib"
+    # tarball 최상위(brew 가 단일 top dir strip 후 cwd): simworld, lib/
+    libexec.install "simworld"
+    libexec.install "lib"
 
     (bin/"seamosworld").write <<~SH
       #!/bin/bash
