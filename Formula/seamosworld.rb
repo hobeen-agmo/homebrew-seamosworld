@@ -10,7 +10,7 @@ class Seamosworld < Formula
   desc "SeamOS SimulationWorld — QEMU VM + Electron dashboard for NEVONEX FCAL"
   homepage "https://github.com/AGMO-Inc/seamos-simulator"
   url "https://seamosworld-dist-795591862191.s3.ap-northeast-2.amazonaws.com/src/seamosworld-launcher-1.0.0.tar.gz"
-  sha256 "9256036c2ebbea7321343d188f9476cda168f5ed506ac92fe6baf76e4f19dec5"
+  sha256 "f665da00506b34025fd65cf87f2850b92e19dee080a3cab62a9cb224fd313378"
   version "1.0.0"
   license "Proprietary"
 
